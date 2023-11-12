@@ -1,5 +1,6 @@
 const pianoKeys = document.querySelectorAll(".piano-keys .key"),
-volumeSlider = document.querySelector(".volume-slider input");
+volumeSlider = document.querySelector(".volume-slider input"),
+keysCheckbox = document.querySelector(".keys-checkbox input");
 
 let allKeys = [], 
 audio = new Audio("tunes/a.wav"); // by defualt, audio src is "a" tune, however you could just leave this empty
@@ -21,10 +22,19 @@ pianoKeys.forEach(key => {
     key.addEventListener("click", () => playTune(key.dataset.key));
 });
 
+const handleVolume = (vol) => {
+    audio.volume = vol.target.value; // passing the range slider valuie as an audio volume
+}
+
+const showHideKeys = () => {
+    pianoKeys.forEach(key => key.classList.toggle("hide"))
+}
+
 const pressedKey = (yuh) => {
     // if the pressed key is in allKeys array, only call the playTune function
     if (allKeys.includes(yuh.key)) playTune(yuh.key);
 }
 
+keysCheckbox.addEventListener("click", showHideKeys);
 document.addEventListener("keydown", pressedKey);
 volumeSlider.addEventListener("input", handleVolume);
