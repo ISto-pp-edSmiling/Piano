@@ -42,11 +42,84 @@ header .column span {
     font-size: 1.19rem;
 }
 
+.keys-checkbox input {
+    outline: none;
+    width:60px;
+    height:30px;
+    cursor: pointer;
+    appearance: none;
+    border-radius: 30px;
+    background: #4b4b4b;
+    position: relative;
+}
+
+.keys-checkbox input::before {
+    content: '';
+    height: 20px;
+    width: 20px;
+    top: 18%;
+    left: 5px;
+    border-radius: inherit;
+    position: absolute;
+    background: #8c8c8c;
+    transition: all 0.3s ease;
+}
+
+.keys-checkbox input:checked::before {
+    left: 35px;
+    background: #ffff;
+}
+
 .volume-slider input {
     accent-color: #fff
 }
 
+.piano-keys {
+    display: flex;
+    margin-top: 40px;
+}
+
 .piano-keys .key {
+    position: relative;
     list-style: none;
+    user-select: none;
     color: #a2a2a2;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.piano-keys .white{
+    width: 70px;
+    height: 230px;
+    border-radius: 8px;
+    background: linear-gradient(#fff 96%, #eee 4%);
+    border: #000 1px solid;
+}
+
+.piano-keys .white.active {
+    box-shadow: inset -5px 5px 20px rgba(0,0,0,0.2);
+    background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+}
+
+.piano-keys .black{
+    z-index: 2;
+    width: 44px;
+    height: 140px;
+    border-radius: 0 0 5px 5px;
+    background: linear-gradient(#333, #000);
+    margin-right: -22px;
+    margin-left: -22px;
+}
+
+.piano-keys .black.active {
+    box-shadow: inset -5px 5px 10px rgba(255,255,255,0.1);
+    background: linear-gradient(to bottom, #000 , #434343);
+}
+
+.piano-keys span {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.13rem;
 }
