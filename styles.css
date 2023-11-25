@@ -102,7 +102,7 @@ header .column span {
 }
 
 .piano-keys .black{
-    z-index: 2;
+    z-index: 2;   /* */
     width: 44px;
     height: 140px;
     border-radius: 0 0 5px 5px;
